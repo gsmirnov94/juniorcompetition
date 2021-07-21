@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+{%block content%}
+<label style="float:right; text-align: right; font-family: 'Montserrat ExtraBold'; font-size: 190%; color: #00003c">
+    СТАТИЧЕСКИЙ АНАЛИЗ СОВРЕМЕННЫХ ВИРУСОВ</label><br>
+<img src="../static/img/map.png" style="float:left; border-color: white;" width="500" height="500" border="10">
+<div id="project" style="font-size: large">
+    <br>
+    <p style="font-family: 'Montserrat ExtraBold'; color: #00003c">Цель проекта:</p>
+    <div style="text-indent: 20px;">
+        <div style="text-indent: 15px;">показать, что статический анализ не является самодостаточным методом защиты как персональных ПК, так и отдельных сетевых сегментов, и продемонстрировать необходимость внедрения дополнительных методов защиты</div>
+    </div>
+    <div id="logic">
+        <br>
+        <p style="font-family: 'Montserrat ExtraBold'; color: #00003c";>Логика функционирования разработанного ПО:</p>
+        <div style="text-indent: 10px;">1. На сайт поступает файл и тип мутации.</div>
+        <div style="text-indent: 10px;">2. Этот набор отправляется на мутатор.</div>
+        <div id="mutator">
+            <br>
+            <div style="font-family: 'Montserrat SemiBold'; color: #00003c; text-indent: 25px">Алгоритм работы мутатора:</div>
+            <div>
+                <div style="text-indent: 50px;">1)Пользователь загружает вирус и выбирает тип мутации;</div>
+                <div style="text-indent: 50px;">2)По выбранным типам мутации загруженный вирус изменяется.</div>
+            </div>
+            <br>
+        </div>
+        <div style="text-indent: 10px;">3. После файл с помощью API отправляется на проверку на virustotal.com.<br></div>
+        <div style="text-indent: 10px;">4. От virustotal.com ответ через API отправляется в базу данных сайта.<br></div>
+        <div style="text-indent: 10px;">5. Полученный результат сканирования отображается на сайте.<br></div>
+<!--        <div style="text-indent: 10px;">6. На основе результатов формируется рейтинг антивирусного ПО в соответствии с  количеством обнаруженных вирусов.<br></div>-->
+    </div>
+</div>
+
+{%endblock%}

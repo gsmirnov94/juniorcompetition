@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{%block content%}
+<div class="form-file" style="font-size: x-large">
+    <div id="name" style="text-align: center; font-size: xx-large; font-weight: bolder">Запрос номер {{file.id}}</div>
+    <div id="virus">Вирус: {{file.virus}}</div>
+    <div id="type-mutator">Тип мутации: {{file.mutation}}</div>
+    {%if file.file %}
+    <div id="file">Используемый файл: {{file.file}}</div>
+    {%endif%}
+    <div id="before">До мутации:
+        <progress value="{{file.report.before.malicious + file.report.before.suspicious}}"
+                  max="{{file.report.before.malicious + file.report.before.suspicious + file.report.before.undetected}}"></progress>
+        {{file.report.before.malicious + file.report.before.suspicious}}
+        <p style="font-size: small">Ссылка на virustotal.com: <a href="{{file.report.before.link}}" target="_blank" rel="noopener noreferrer">{{file.report.before.link}}</a></p>
+    </div>
+    <div id="after">После мутации:
+        <progress value="{{file.report.after.malicious + file.report.after.suspicious}}"
+                  max="{{file.report.after.malicious + file.report.after.suspicious + file.report.after.undetected}}"></progress>
+        {{file.report.after.malicious + file.report.after.suspicious}}
+        <p style="font-size: small">Ссылка на virustotal.com: <a href="{{file.report.after.link}}"target="_blank" rel="noopener noreferrer">{{file.report.after.link}}</a></p>
+    </div>
+</div>
+{%endblock%}

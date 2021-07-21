@@ -1,0 +1,46 @@
+{%extends "base.html"%}
+
+{%block head%}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="../static/js/changeDispaly.js"></script>
+<script src='../static/js/custom_input_file.js'></script>
+{%endblock%}
+
+{%block content%}
+<form action="" method="post" id="form" class="form-file">
+    <input id="csrf_token" name="csrf_token" type="hidden" value="{{csrf_token()}}">
+    <div id="post-virus" style="padding: 16px;">
+        <label for="virus" >Вирус: </label>
+        <div class="select">
+            <select id="virus" name="virus" required>
+                <option disabled selected>Выберите вирус</option>
+                <option value="Stealer.exe">Stealer</option>
+                <option value="Trojan.exe">Trojan</option>
+                <option value="Winlocker.exe">WinLocker</option>
+                <option value="RAT.exe">RAT</option>
+            </select>
+        </div>
+    </div><br>
+    <div id="post-type" style="padding: 16px;">
+        <label for="type_mutator" id="type-label">Тип мутации: </label>
+        <div class="select">
+            <select id="type_mutator" name="type_mutator" required onchange="changeDisplay()">
+                <option disabled selected>Выберите тип мутации</option>
+                <option value="1">Joiner</option>
+                <option value="2">Cryptor</option>
+                <option value="3">WinRAR</option>
+            </select>
+        </div>
+    </div>
+    <div id="post-file">
+
+    </div>
+    <br>
+    <div id="post-submit" >
+        <input id="submit" name="submit" type="submit" value="Отправить" class="btn success">
+    </div>
+</form>
+{%endblock%}

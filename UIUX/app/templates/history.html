@@ -1,0 +1,9 @@
+{%extends "base.html"%}
+{%block content%}
+<h1 class="custom-label">HISTORY</h1>
+{%for file in reportFile%}
+<div id ="file/{{file.id}}">
+    <a href="/show/{{file.id}}" style="font-size: x-large">Запрос номер {{file.id}}</a>
+</div>
+{%endfor%}
+{%endblock%}
